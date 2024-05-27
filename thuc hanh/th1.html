@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <ul id="list"></ul> -->
+    <input id="username" type="text" value="name" />
+    <button id="button">upper it</button>
+    <div id="result">your result will appear here</div>
+
+    <script>
+      // lay ra upper it button
+      const button = document.getElementById("button");
+      const userName = document.getElementById("username");
+      const resultText = document.getElementById("result");
+
+      console.log(userName);
+      console.log(button);
+      console.log(resultText);
+      button.addEventListener("click", () => {
+        const text = userName.value;
+        console.log(text);
+        resultText.innerHTML = text.toUpperCase();
+        userName.value = "";
+      });
+
+      // const container = document.getElementById("list");
+      // for (let i = 0; i < 3; i++) {
+      //   container.insertAdjacentHTML("beforebegin", `<li>${i}</li>`);
+      // }
+      // const idTimeout = setTimeout(() => {
+      //   document.getElementById("list").style.color = "red";
+      // });
+
+      // clearTimeout(idTimeout);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ==================LINK BOX ICON======================== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    .body.action {
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+    }
+    .content.action {
+      opacity: 1;
+    }
+    .content {
+      width: 500px;
+      height: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: gold;
+      margin: 30px;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    #close {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      background-color: aqua;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <body class="body">
+    <div class="text"><h1>modal example</h1></div>
+    <!-- <button type="button" id="hide">hide text</button> -->
+    <button type="button" id="show">open the modal</button>
+    <div class="content">
+      <h2>some text in the Modal</h2>
+      <i class="bx bx-window-close" id="close"></i>
+    </div>
+    <script>
+      const backgroundBody = document.querySelector(".body");
+      const textContent = document.querySelector(".content");
+      const closeText = document.querySelector("#close");
+      const show = document.querySelector("#show");
+
+      closeText.addEventListener("click", () => {
+        backgroundBody.classList.remove("action");
+        textContent.classList.remove("action");
+      });
+      show.addEventListener("click", () => {
+        textContent.classList.add("action");
+        backgroundBody.classList.add("action");
+      });
+    </script>
+  </body>
+</html>

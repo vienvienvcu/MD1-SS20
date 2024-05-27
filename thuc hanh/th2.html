@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input id="input-name" type="text" />
+      <button id="button-submit" onclick="addTodo()">Enter</button>
+    </div>
+    <div>
+      <ul id="list-todo"></ul>
+    </div>
+    <script>
+      // b1 goi cac bien ra
+      const inputName = document.getElementById("input-name");
+      const button = document.getElementById("button-submit");
+      const listTodo = document.getElementById("list-todo");
+
+      // b2 goi mang  ,  dung vong lap lap va ap vao todo khi bam enter
+
+      const todoList = [];
+
+      function render() {
+        // dat mot cai bien chua tat ca nhung thu doto vao
+        let stringHTML = "";
+        for (let i in todoList) {
+          stringHTML +=
+            //   console.log(todoList);
+            `
+            <li>
+                 <span style="width: 200px; display: inline-block;">${todoList[i]}</span>
+                  <button onclick="removeTodo(${i})">Remove</button>
+            </li>
+            `;
+        }
+        listTodo.innerHTML = stringHTML;
+      }
+      render();
+
+      function addTodo() {
+        const todo = inputName.value;
+        todoList.push(todo);
+        inputName.value = "";
+        console.log(todo);
+        render();
+      }
+      function removeTodo(index) {
+        todoList.splice(index, 1);
+        render();
+      }
+      //   button.onclick = function () {
+      //     render();
+      //     addTodo();
+      //   };
+
+      //   const inputHTML = document.getElementById("input-name");
+      //   const buttonHTML = document.getElementById("button-submit");
+      //   const listHTML = document.getElementById("list-todo");
+
+      //   const todoList = [];
+
+      //   function render() {
+      //     let stringHTML = "";
+
+      //     for (let i in todoList) {
+      //       stringHTML += `
+      //         <li>
+      //             <span style="width: 200px; display: inline-block;">${todoList[i]}</span>
+      //             <button onclick="removeTodo(${i})">Remove</button>
+      //         </li>
+      //     `;
+      //     }
+
+      //     listHTML.innerHTML = stringHTML;
+      //   }
+      //   render();
+
+      //   function addTodo() {
+      //     const todo = inputHTML.value;
+      //     todoList.push(todo);
+      //     inputHTML.value = "";
+      //     render();
+      //   }
+
+      //   function removeTodo(index) {
+      //     todoList.splice(index, 1);
+      //     render();
+      //   }
+    </script>
+  </body>
+</html>

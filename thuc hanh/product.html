@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./product.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="toastify"
+      style="
+        width: 310px;
+        background-color: red;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        overflow: hidden;
+        border-radius: 4px;
+        z-index: 999;
+      "
+      class="hidden"
+    >
+      <p id="toastify-message" style="text-align: justify; color: white"></p>
+    </div>
+
+    <section id="form-scope" class="hidden">
+      <form class="form-product" onsubmit="submitForm(event)">
+        <h4 style="text-align: center">Product</h4>
+        <div class="scope-input">
+          <label for="name" class="label-product">Name: </label>
+          <input id="name" name="name" type="text" />
+        </div>
+        <div class="scope-input">
+          <label for="price" class="label-product">Price: </label>
+          <input id="price" name="price" type="number" min="1" />
+        </div>
+        <div class="scope-input">
+          <label for="quantity" class="label-product">Quantity: </label>
+          <input id="quantity" name="quantity" type="number" min="1" />
+        </div>
+        <div class="scope-input">
+          <label for="category" class="label-product">Quantity: </label>
+          <select name="category">
+            <option value="Laptop">Laptop</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Loudspeaker">Loudspeaker</option>
+          </select>
+        </div>
+        <div class="scope-input">
+          <label for="description" class="label-product">Description: </label>
+          <textarea
+            name="description"
+            id="description"
+            cols="20"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="scope-input">
+          <label for="input-image" class="label-product pointer">Image: </label>
+          <input
+            id="input-image"
+            type="file"
+            accept="image/*"
+            hidden
+            onchange="convertToBase64()"
+          />
+          <img id="image-product" width="100px" src="" alt="img" />
+        </div>
+        <div style="display: flex; justify-content: center; gap: 12px">
+          <button type="button" onclick="closeForm()">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <main style="width: 1200px; margin: 0 auto">
+      <section id="action" style="padding-top: 48px">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <div>
+            <button onclick="openForm()">Add</button>
+          </div>
+          <div>
+            <span>Select: </span>
+            <select name="category" onchange="changeCategory(event)">
+              <option value="All">All</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Loudspeaker">Loudspeaker</option>
+            </select>
+          </div>
+          <div>
+            <input type="text" onchange="changeTextSearch(event)" />
+            <button onclick="render()">Search</button>
+          </div>
+        </div>
+      </section>
+      <section id="table">
+        <table>
+          <caption style="font-weight: bold; font-size: 20px; margin: 12px">
+            Products table
+          </caption>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </section>
+      <section
+        id="pagination"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          gap: 24px;
+        "
+        search-icon
+      >
+        <div>
+          <select name="" id="" onchange="changePageSize(event)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+        <div style="display: flex; justify-content: end; align-items: center">
+          <button onclick="changePage(-1)">Previous</button>
+          <p id="page-list"></p>
+          <button onclick="changePage(1)">Next</button>
+        </div>
+      </section>
+    </main>
+    <script src="./product.js"></script>
+  </body>
+</html>

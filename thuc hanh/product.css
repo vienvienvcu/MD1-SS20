@@ -1,0 +1,94 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  input,
+  button,
+  textarea,
+  option,
+  select {
+      outline: none;
+      padding: 5px 10px;
+  }
+  
+  textarea {
+      resize: none;
+  }
+  
+  button {
+      cursor: pointer;
+  }
+  
+  #form-scope {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      padding-top: 48px;
+      height: 100vh;
+      background-color: none;
+      background-color: #c7bebeaf;
+  }
+  
+  .hidden {
+      display: none !important;
+  }
+  
+  .label-product {
+      display: inline-block;
+      min-width: 100px;
+  }
+  
+  .scope-input {
+      margin: 10px 0;
+  }
+  
+  .form-product {
+      width: 400px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #333;
+      box-shadow: 1px 1px 1px 1px #999;
+      height: fit-content;
+  }
+  
+  .pointer {
+      cursor: pointer;
+  }
+  
+  table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 56px 0;
+  }
+  
+  table,
+  th,
+  td {
+      border: 1px solid;
+  }
+  
+  .page-item {
+      display: inline-block;
+      margin: 0 4px;
+      padding: 5px;
+      border-radius: 50%;
+      border: 1px solid #999;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+  }
+  
+  .page-active {
+      background-color: blue;
+  }
+  
+  .page-item:hover {
+      background-color: aqua;
+  }
